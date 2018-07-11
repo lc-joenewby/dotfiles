@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$(dirname $(readlink $BASH_SOURCE))/../os/utils.sh"
+source "$(dirname $(readlink $BASH_SOURCE))/../macos/utils.sh"
 
 # ----------------------------------------------------------------------
 # | Helper Functions                                                   |

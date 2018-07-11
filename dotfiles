@@ -254,13 +254,13 @@ main() {
     printf '\n'
 
     if answer_is_yes; then
-        ./os/create_directories.sh
+        ./macos/create_directories.sh
     fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     print_info 'Create symbolic links'
-    ./os/create_symbolic_links.sh
+    ./macos/create_symbolic_links.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -271,13 +271,13 @@ main() {
 
     if answer_is_yes; then
 
-        ./os/install_applications.sh
+        ./macos/install_applications.sh
         printf '\n'
 
-        ./os/install_node_versions.sh
+        ./macos/install_node_versions.sh
         printf '\n'
 
-        ./os/install_npm_packages.sh
+        ./macos/install_npm_packages.sh
 
     fi
 
@@ -289,7 +289,7 @@ main() {
     printf '\n'
 
     if answer_is_yes; then
-        ./os/set_preferences.sh
+        ./macos/set_preferences.sh
     fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -298,7 +298,7 @@ main() {
 
         if [ "$(git config --get remote.origin.url)" != "$DOTFILES_ORIGIN" ]; then
             print_info 'Initialize Git repository'
-            ./os/initialize_git_repository.sh "$DOTFILES_ORIGIN"
+            ./macos/initialize_git_repository.sh "$DOTFILES_ORIGIN"
         fi
 
         # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -309,7 +309,7 @@ main() {
         printf '\n'
 
         if answer_is_yes; then
-            ./os/update_content.sh
+            ./macos/update_content.sh
         fi
 
     fi
@@ -324,7 +324,7 @@ main() {
         printf '\n'
 
         if answer_is_yes; then
-            ./os/install_vim_plugins.sh
+            ./macos/install_vim_plugins.sh
         fi
 
     fi
@@ -337,7 +337,7 @@ main() {
     printf '\n'
 
     if answer_is_yes; then
-        ./os/restart.sh
+        ./macos/restart.sh
     fi
 
 }
