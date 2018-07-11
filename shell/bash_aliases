@@ -1,0 +1,141 @@
+#!/bin/bash
+
+source "$(dirname $(readlink $BASH_SOURCE))/../os/utils.sh" \
+    && declare OS="$(get_os)"
+
+# ----------------------------------------------------------------------
+# | Navigation                                                         |
+# ----------------------------------------------------------------------
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias cd..='cd ..'
+
+# ----------------------------------------------------------------------
+# | Network                                                            |
+# ----------------------------------------------------------------------
+
+alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias ports='sudo lsof -i -n -P | grep TCP'
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+alias local-ip='ipconfig getifaddr en1'
+
+# ----------------------------------------------------------------------
+# | Package Managers                                                   |
+# ----------------------------------------------------------------------
+
+# Homebrew
+if command -v 'brew' &> /dev/null; then
+    alias brewd='brew doctor'
+    alias brewi='brew install'
+    alias brewr='brew uninstall'
+    alias brews='brew search'
+    alias brewu='brew update \
+                  && brew upgrade --all \
+                  && brew cleanup \
+                  && brew cask cleanup'
+fi
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Update
+
+alias update='sudo softwareupdate --install --all \
+               && brew update \
+               && brew upgrade --all \
+               && brew cleanup \
+               && npm install -g npm \
+               && npm update -g'
+
+# ----------------------------------------------------------------------
+# | Shorter Commands                                                   |
+# ----------------------------------------------------------------------
+
+alias :q='exit'
+alias c='clear'
+alias ch='history -c && > ~/.bash_history'
+alias e='vim'
+alias g='git'
+alias ll='ls -l'
+alias m='man'
+alias map='xargs -n1'
+alias q='exit'
+alias rm='rm -rf'
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Copy to clipboard
+
+alias cc='pbcopy'
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Empty Trash
+
+# Empty the trash, the main HDD and on all mounted volumes
+# and clear Apple’s system logs to improve shell startup speed
+
+alias empty-trash='sudo rm -frv /Volumes/*/.Trashes \
+                    && sudo rm -frv ~/.Trash \
+                    && sudo rm -frv /private/var/log/asl/*.asl'
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Hide/Show files
+
+# Hide/Show desktop icons
+alias hide-desktop-icons='defaults write com.apple.finder CreateDesktop -bool false && killall Finder'
+alias show-desktop-icons='defaults write com.apple.finder CreateDesktop -bool true && killall Finder'
+
+# Hide/Show hidden files in Finder
+alias hide-hidden-files='defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder'
+alias show-hidden-files='defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder'
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Lock screen
+
+alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Open
+
+alias o='open'
+
+
+# ----------------------------------------------------------------------
+# | Localcover                                                         |
+# ----------------------------------------------------------------------
+
+# Set Go Path to the current directory
+
+alias gp='set-go-path'
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Install Go dependencies
+
+alias gdi='dep-install'
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Reset Go dependencies
+
+alias gdr='dep-reset'
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Update Go dependencies
+
+alias gdu='dep-update'
+
+# ----------------------------------------------------------------------
+
+# Unset anything that just pollutes the global space
+
+unset OS

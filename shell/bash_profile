@@ -1,0 +1,91 @@
+#!/bin/bash
+
+source "$(dirname $(readlink $BASH_SOURCE))/../os/utils.sh"
+
+# ----------------------------------------------------------------------
+# | Helper Functions                                                   |
+# ----------------------------------------------------------------------
+
+enable_programmable_completion() {
+
+    # Enable programmable completion features
+    # http://tldp.org/LDP/abs/html/tabexpansion.html
+
+	if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
+
+        # Use `bash-completion` 2.x
+        source $(brew --prefix)/share/bash-completion/bash_completion
+
+        # Make bash complete the `g` alias, just like it does `git`
+        complete -o default -o nospace -F _git g
+
+    fi
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    [ -f "$NVM_DIR/bash_completion" ] \
+        && source $NVM_DIR/bash_completion
+
+}
+
+source_bash_files() {
+
+    local file=''
+    local i=''
+
+    declare -r -a FILES_TO_SOURCE=(
+        'bash_aliases'
+        'bash_exports'
+        'bash_functions'
+        'bash_options'
+        'bash_prompt'
+        'bash.local'  # for local settings that should
+                      # not be under version control
+    )
+
+    for i in ${!FILES_TO_SOURCE[*]}; do
+        file="$HOME/.${FILES_TO_SOURCE[$i]}"
+        [ -r "$file" ] && source "$file"
+    done
+
+}
+
+# ----------------------------------------------------------------------
+# | Main                                                               |
+# ----------------------------------------------------------------------
+
+main() {
+    source_bash_files
+    enable_programmable_completion
+}
+
+main
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Unset anything that just pollutes the global space
+
+unset -f enable_programmable_completion
+unset -f main
+unset -f source_bash_files
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Clear system messages (e.g.: system copyright notice, the
+# date and time of the last login, the message of the day, etc.)
+
+clear
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/Ussuri/Downloads/google-cloud-sdk/path.bash.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/Users/Ussuri/Downloads/google-cloud-sdk/completion.bash.inc'
+
+export GOPATH=/Users/Ussuri/projects/go/
+
+export PATH=$GOPATH/bin:$PATH
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+export PATH=$HOME/.rbenv/bin:$PATH
+
+eval "$(rbenv init -)"
