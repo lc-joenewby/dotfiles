@@ -20,7 +20,6 @@ main() {
         brew_install 'Zopfli' 'zopfli'
         brew_install 'tmux' 'tmux'
         brew_install 'Vim' 'vim --override-system-vi'
-        brew_install 'Speedtest command-line' 'speedtest_cli'
         brew install 'Wrk' 'wrk'
         brew install 'PlantUML' 'plantuml'
         brew_install 'Python 3' 'python3'

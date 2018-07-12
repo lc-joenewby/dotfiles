@@ -18,7 +18,6 @@ main() {
         printf '\n'
 
         brew_install 'Java' 'java' 'cask'
-        brew_install 'Docker Toolbox' 'dockertoolbox' 'cask'
         brew_install 'Atom' 'atom' 'cask'
         brew_install 'Visual Studio Code' 'visual-studio-code' 'cask'
         brew_install 'Postman' 'postman' 'cask'
@@ -30,7 +29,6 @@ main() {
         brew_install 'Spectacle' 'spectacle' 'cask'
         brew_install 'Unarchiver' 'the-unarchiver' 'cask'
         brew_install 'Slack' 'slack' 'cask'
-        brew_install 'Github Desktop' 'github-desktop' 'cask'
 
     fi
 
