@@ -224,8 +224,8 @@ main() {
 
     # Load utils
 
-    if [ -x 'os/utils.sh' ]; then
-        source 'os/utils.sh' || exit 1
+    if [ -x 'macos/utils.sh' ]; then
+        source 'macos/utils.sh' || exit 1
     else
         download_utils || exit 1
     fi
