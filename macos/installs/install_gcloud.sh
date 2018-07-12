@@ -19,7 +19,7 @@ main() {
 
     # Install `Google Cloud SDK`
 
-    execute "curl https://sdk.cloud.google.com | bash --disable-prompts" "Google Cloud SDK"
+    execute "curl https://sdk.cloud.google.com | bash" "Google Cloud SDK"
 
 }
 

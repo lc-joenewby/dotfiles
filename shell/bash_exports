@@ -37,3 +37,16 @@ export MANPAGER='less -X'
 # Make new shells get the history lines from all previous
 # shells instead of the default "last window closed" history
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+# Localcover API Variables
+
+export ENV='dev'
+export GCP_PROJECT_ID='localcover-55'
+export OS='MACOS'
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/joe/google-cloud-sdk/path.bash.inc' ]; then source '/Users/joe/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/joe/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/joe/google-cloud-sdk/completion.bash.inc'; fi

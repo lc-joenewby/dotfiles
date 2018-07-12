@@ -307,13 +307,4 @@ dep-reset() {
     cd ../../..
 }
 
-# You can run Go apps locally using commands like this from the root of the repository:
-set-up-localcover-api() {
-    set-go-path()
-    project="$( ${PWD##*/} )"
-    go install $project
-    cp -f "certificates/*" "bin/"
-    cp -f "secrets/*" "bin/"
-}
-
 # cd src/lc-api-*

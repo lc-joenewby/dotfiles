@@ -75,9 +75,3 @@ unset -f source_bash_files
 # date and time of the last login, the message of the day, etc.)
 
 clear
-
-# The next line updates PATH for the Google Cloud SDK.
-# source '/Users/joe/Downloads/google-cloud-sdk/path.bash.inc'
-
-# The next line enables shell command completion for gcloud.
-# source '/Users/joe/Downloads/google-cloud-sdk/completion.bash.inc'

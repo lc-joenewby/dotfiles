@@ -118,6 +118,12 @@ alias gp='set-go-path'
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Move the correct files into place
+
+alias gs='cp -f certificates/* bin/ && cp -f secrets/* bin/'
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # Install Go dependencies
 
 alias gdi='dep-install'
@@ -135,6 +141,10 @@ alias gdr='dep-reset'
 alias gdu='dep-update'
 
 # ----------------------------------------------------------------------
+
+# Open dotfiles in an editor
+
+alias dotfiles='atom ~/projects/dotfiles'
 
 # Unset anything that just pollutes the global space
 
