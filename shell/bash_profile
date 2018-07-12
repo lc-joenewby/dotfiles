@@ -77,15 +77,7 @@ unset -f source_bash_files
 clear
 
 # The next line updates PATH for the Google Cloud SDK.
-source '/Users/Ussuri/Downloads/google-cloud-sdk/path.bash.inc'
+# source '/Users/Ussuri/Downloads/google-cloud-sdk/path.bash.inc'
 
 # The next line enables shell command completion for gcloud.
-source '/Users/Ussuri/Downloads/google-cloud-sdk/completion.bash.inc'
-
-export GOPATH=/Users/Ussuri/projects/go/
-
-export PATH=$GOPATH/bin:$PATH
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
-export PATH=$HOME/.rbenv/bin:$PATH
-
-eval "$(rbenv init -)"
+# source '/Users/Ussuri/Downloads/google-cloud-sdk/completion.bash.inc'
