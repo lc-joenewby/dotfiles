@@ -159,7 +159,6 @@ is_supported_version() {
 verify_os() {
 
     declare -r MINIMUM_OS_X_VERSION='10.10'
-    declare -r MINIMUM_UBUNTU_VERSION='14.04'
     declare -r OS_NAME="$(uname -s)"
 
     declare OS_VERSION=''
@@ -176,19 +175,6 @@ verify_os() {
         is_supported_version "$OS_VERSION" "$MINIMUM_OS_X_VERSION" \
             && return 0 \
             || printf "Sorry, this script is intended only for OS X $MINIMUM_OS_X_VERSION+"
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    # Check if the OS is `Ubuntu` and
-    # it's above the required version
-
-    elif [ "$OS_NAME" == "Linux" ] && [ -e "/etc/lsb-release" ]; then
-
-        OS_VERSION="$(lsb_release -d | cut -f2 | cut -d' ' -f2)"
-
-        is_supported_version "$OS_VERSION" "$MINIMUM_UBUNTU_VERSION" \
-            && return 0 \
-            || printf "Sorry, this script is intended only for Ubuntu $MINIMUM_UBUNTU_VERSION+"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
