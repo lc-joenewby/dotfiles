@@ -52,9 +52,10 @@ get_os() {
     local os=''
 
     if [ "$OS_NAME" == "Darwin" ]; then
-        os='osx'
-    elif [ "$OS_NAME" == "Linux" ] && [ -e "/etc/lsb-release" ]; then
-        os='ubuntu'
+        os='macos'
+    # This project used to support ubuntu. All related files have been removed.
+    # elif [ "$OS_NAME" == "Linux" ] && [ -e "/etc/lsb-release" ]; then
+    #     os='ubuntu'
     else
         os="$OS_NAME"
     fi
