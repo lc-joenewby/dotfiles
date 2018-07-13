@@ -43,6 +43,8 @@ export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 export ENV='dev'
 export GCP_PROJECT_ID='localcover-55'
 export OS='MACOS'
+export GOPATH='/Users/joe/go'
+export PATH=$GOPATH/bin:$PATH
 
 
 # The next line updates PATH for the Google Cloud SDK.

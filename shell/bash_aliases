@@ -140,6 +140,12 @@ alias gdr='dep-reset'
 
 alias gdu='dep-update'
 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Lint Go project
+
+alias gl='go-lint'
+
 # ----------------------------------------------------------------------
 
 # Open dotfiles in an editor

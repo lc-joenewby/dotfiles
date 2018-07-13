@@ -280,31 +280,37 @@ set-go-path() {
 # The tool parses the code to determine the dependencies.
 # All dependencies are vendored and committed.
 # Generally one runs the following commands to add a new dependency:
-dep-install() {
-    set-go-path()
-    cd "src/lc-api-*"
-    dep ensure
-    cd ../../..
-}
+# dep-install() {
+#     set-go-path()
+#     cd "src/lc-api-*"
+#     dep ensure
+#     cd ../../..
+# }
 
-dep-update() {
-    set-go-path()
-    cd "src/lc-api-*"
-    dep ensure -update
-    cd ../../..
-}
+# dep-update() {
+#     set-go-path()
+#     cd "src/lc-api-*"
+#     dep ensure -update
+#     cd ../../..
+# }
 
 # If the dependency management gets confused
 # you can start again with the following commands
-dep-reset() {
-    set-go-path()
-    rm -rf "pkg"
-    cd "src/lc-api-*"
-    rm -f "Gopkg.lock"
-    rm -f "Gopkg.toml"
-    rm -rf "vendor"
-    dep init
-    cd ../../..
+# dep-reset() {
+#     set-go-path()
+#     rm -rf "pkg"
+#     cd "src/lc-api-*"
+#     rm -f "Gopkg.lock"
+#     rm -f "Gopkg.toml"
+#     rm -rf "vendor"
+#     dep init
+#     cd ../../..
+# }
+
+go-lint() {
+  local folder=''
+  folder="${PWD##*/}"
+  gometalinter.v2 --vendor --deadline=240s --config=.gometalinter.json "src/$folder"
 }
 
 # cd src/lc-api-*
